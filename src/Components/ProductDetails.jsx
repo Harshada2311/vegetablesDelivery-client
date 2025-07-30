@@ -21,10 +21,11 @@ function ProductDetails() {
        console.log("Adding to cart:", product);
        alert("Product added to cart successfully!");
        dispatch(addToCart(product));
+       //http://localhost:5400
      };
 
     useEffect(() => {
-        axios.get(`http://localhost:5400/products/${id}`)
+        axios.get(`https://vegetablesdelivery-server.onrender.com/products/${id}`)
             .then((response) => {
                 setProduct(response.data.filterId);
                 setLoading(false);

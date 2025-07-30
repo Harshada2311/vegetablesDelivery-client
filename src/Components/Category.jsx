@@ -16,7 +16,7 @@ export default function Category() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5400/products/getProductsByCategory/${category}`)
+      .get(`https://vegetablesdelivery-server.onrender.com/products/getProductsByCategory/${category}`)
       .then((res) => {
         if (res.data.filtercategory && Array.isArray(res.data.filtercategory)) {
           setProducts(res.data.filtercategory);

@@ -25,7 +25,7 @@ function ProductsByCategory() {
   const fetchAllProducts = () => {
     setLoading(true);
     axios
-      .get('http://localhost:5400/products')
+      .get('https://vegetablesdelivery-server.onrender.com/products')
       .then((response) => {
         if (response.data && Array.isArray(response.data)) {
           setAllProducts(response.data);
@@ -68,7 +68,7 @@ function ProductsByCategory() {
       fetchAllProducts();
     } else {
       axios
-        .get(`http://localhost:5400/products/getProductsByCategory/${category}`)
+        .get(`https://vegetablesdelivery-server.onrender.com/products/getProductsByCategory/${category}`)
         .then((response) => {
           if (
             response.data.filtercategory &&

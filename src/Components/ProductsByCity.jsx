@@ -9,7 +9,7 @@ function ProductsByCity() {
 
     useEffect(() => {
         axios
-            .get('http://localhost:5400/products')
+            .get('https://vegetablesdelivery-server.onrender.com/products')
             .then((response) => {
                 if (response.data && Array.isArray(response.data)) {
                     const citySet = new Set();

@@ -11,7 +11,7 @@ export default function Testimonials() {
 
   useEffect(()=>{
    axios
-   .get(`http://localhost:5400/testimonials`)
+   .get(`https://vegetablesdelivery-server.onrender.com/testimonials`)
    .then((response)=>{
     if(Array.isArray(response.data)){
       setTestimonial(response.data);

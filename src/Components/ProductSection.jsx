@@ -8,7 +8,7 @@ export default function ProductSection() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:5400/products").then((res) => {
+    axios.get("https://vegetablesdelivery-server.onrender.com/products").then((res) => {
       const uniqueCategories = [
         ...new Set(res.data.map((product) => product.category)),
       ];

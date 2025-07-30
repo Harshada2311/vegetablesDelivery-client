@@ -22,7 +22,7 @@ function ProductResults() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5400/products/getProductsByCity/${city}`)
+      .get(`https://vegetablesdelivery-server.onrender.com/products/getProductsByCity/${city}`)
       .then((response) => {
         if (response.data.filtercity && Array.isArray(response.data.filtercity)) {
           setProducts(response.data.filtercity);

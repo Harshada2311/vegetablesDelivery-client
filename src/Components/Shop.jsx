@@ -10,7 +10,7 @@ function Shop() {
 
   // Fetch unique categories once
   useEffect(() => {
-    axios.get("http://localhost:5400/products")
+    axios.get("https://vegetablesdelivery-server.onrender.com/products")
       .then((res) => {
         const unique = [...new Set(res.data.map((product) => product.category))];
         setCategories(unique);
