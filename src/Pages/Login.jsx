@@ -17,7 +17,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5400/api/auth/login", form);
+      const res = await axios.post("https://vegetablesdelivery-server.onrender.com/api/auth/login", form);
       login(res.data); // Save token and user info
       
       navigate("/"); // Redirect to homepage or dashboard

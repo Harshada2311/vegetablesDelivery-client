@@ -16,7 +16,7 @@ function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:5400/api/auth/register", form);
+            await axios.post("https://vegetablesdelivery-server.onrender.com/api/auth/register", form);
             navigate("/login");
         } catch (err) {
             setError(err.response?.data?.message || "Registration failed.");
