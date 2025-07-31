@@ -42,6 +42,49 @@ body {
   box-sizing: border-box;
 }
 
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 5px 0;
+  }
+
+  .navbar-collapse {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .navbar-toggler {
+    border: none;
+    outline: none;
+  }
+
+  .navbar .btn {
+    width: 100%;
+    text-align: left;
+  }
+
+  .navbar .nav-link {
+    width: 100%;
+  }
+
+  .dropdown-menu {
+    width: 100%;
+  }
+}
+
 /* Utilities for Section Layout */
 .section-title {
   text-align: center;
