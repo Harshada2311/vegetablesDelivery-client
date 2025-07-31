@@ -15,8 +15,8 @@ function OurProduct() {
             <img src="../assets/bell_pepper.jpeg" alt="Bell Pepper" />
             <h4>BELL PEPPER</h4>
             <div>
-              <span className="old-price">$120.00</span>
-              <span className="price">$80.00</span>
+              <span className="old-price">₹120</span>
+              <span className="price">₹80</span>
             </div>
             <div className="hover-icons">
               <i className="bi bi-cart"></i>
@@ -28,7 +28,7 @@ function OurProduct() {
           <div className="product-card">
             <img src="../assets/strawberry.jpeg" alt="Strawberry" />
             <h4>STRAWBERRY</h4>
-            <div className="price">$120.00</div>
+            <div className="price"> ₹120</div>
             <div className="hover-icons">
               <i className="bi bi-cart"></i>
               <i className="bi bi-heart"></i>
@@ -38,7 +38,7 @@ function OurProduct() {
           <div className="product-card">
             <img src="../assets/benas.jpeg" alt="Green Beans" />
             <h4>GREEN BEANS</h4>
-            <div className="price">$120.00</div>
+            <div className="price"> ₹120</div>
             <div className="hover-icons">
               <i className="bi bi-cart"></i>
               <i className="bi bi-heart"></i>
@@ -48,7 +48,7 @@ function OurProduct() {
           <div className="product-card">
             <img src="../assets/purple_cabage.jpeg" alt="Purple Cabbage" />
             <h4>PURPLE CABBAGE</h4>
-            <div className="price">$120.00</div>
+            <div className="price"> ₹120</div>
             <div className="hover-icons">
               <i className="bi bi-cart"></i>
               <i className="bi bi-heart"></i>

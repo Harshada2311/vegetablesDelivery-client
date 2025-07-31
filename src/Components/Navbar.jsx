@@ -9,15 +9,15 @@ import { useSelector } from "react-redux";
 export default function Navbar() {
   const { user, logout } = useAuth();
 
-const cartItems = useSelector((state) => state.cart.items);
+  const cartItems = useSelector((state) => state.cart.items);
   return (
 
     <>
       <div className="navbar-wrapper">
         <div className="top-bar">
-          <div className="container d-flex justify-content-between small">
-            <div>📞 +1235 2355 98</div>
-            <div>✉️ youremail@email.com</div>
+          <div className="container d-flex flex-column flex-md-row justify-content-between align-items-center small text-center text-md-start">
+            <div className="mb-1 mb-md-0">📞 +1235 2355 98</div>
+            <div className="mb-1 mb-md-0">✉️ youremail@email.com</div>
             <div>🚚 20–30 minutes delivery & free returns</div>
           </div>
         </div>
