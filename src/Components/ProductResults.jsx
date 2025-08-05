@@ -12,6 +12,7 @@ function ProductResults() {
   const [error, setError] = useState(null);
 
   const dispatch = useDispatch();
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   const handleAddToCart = (product) => {
     console.log("Adding to cart:", product);
@@ -22,7 +23,7 @@ function ProductResults() {
 
   useEffect(() => {
     axios
-      .get(`https://vegetablesdelivery-server.onrender.com/products/getProductsByCity/${city}`)
+      .get(`${BASE_URL}/products/getProductsByCity/${city}`)
       .then((response) => {
         if (response.data.filtercity && Array.isArray(response.data.filtercity)) {
           setProducts(response.data.filtercity);
@@ -33,7 +34,7 @@ function ProductResults() {
       .catch((err) => {
         setError("Failed to fetch products");
       });
-  }, [city]);
+  }, [city , BASE_URL]);
 
   return (
     <div className="container py-5">

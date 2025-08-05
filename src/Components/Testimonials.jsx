@@ -8,10 +8,11 @@ export default function Testimonials() {
   const[testimonial,setTestimonial] = useState(null);
   const[loading,setLoading] = useState(true);
   const[error,setError] = useState(null);
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(()=>{
    axios
-   .get(`https://vegetablesdelivery-server.onrender.com/testimonials`)
+   .get(`${BASE_URL}/testimonials`)
    .then((response)=>{
     if(Array.isArray(response.data)){
       setTestimonial(response.data);
@@ -27,7 +28,7 @@ export default function Testimonials() {
         setLoading(false);
    })
 
-  },[])
+  },[BASE_URL])
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 

@@ -16,6 +16,7 @@ function ProductDetails() {
     const [newReview, setNewReview] = useState({ username: "", rating: 5, comment: "" })
     //const { user } = useAuth();
     const dispatch = useDispatch();
+    const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
    const handleAddToCart = (product) => {
        console.log("Adding to cart:", product);
@@ -25,7 +26,8 @@ function ProductDetails() {
      };
 
     useEffect(() => {
-        axios.get(`https://vegetablesdelivery-server.onrender.com/products/${id}`)
+        
+         axios.get(`${BASE_URL}/products/${id}`)
             .then((response) => {
                 setProduct(response.data.filterId);
                 setLoading(false);
@@ -34,7 +36,7 @@ function ProductDetails() {
                 setError("Failed to fetch products Details.");
 
             })
-    }, [id]);
+    }, [id , BASE_URL]);
 
     const handleReviewSubmit = (e) => {
         e.preventDefault();

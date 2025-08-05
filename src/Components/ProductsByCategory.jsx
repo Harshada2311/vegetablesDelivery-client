@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState , useCallback } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/cartSlice';
@@ -16,16 +16,17 @@ function ProductsByCategory() {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   const handleAddToCart = (product) => {
     alert('Product added to cart successfully!');
     dispatch(addToCart(product));
   };
 
-  const fetchAllProducts = () => {
+  const fetchAllProducts = useCallback(() => {
     setLoading(true);
     axios
-      .get('https://vegetablesdelivery-server.onrender.com/products')
+      .get(`${BASE_URL}/products`)
       .then((response) => {
         if (response.data && Array.isArray(response.data)) {
           setAllProducts(response.data);
@@ -45,11 +46,11 @@ function ProductsByCategory() {
         setError('Failed to fetch products');
         setLoading(false);
       });
-  };
+  }, [BASE_URL]);
 
   useEffect(() => {
     fetchAllProducts();
-  }, []);
+  }, [fetchAllProducts]);
 
   useEffect(() => {
     const filtered = allProducts.filter((product) =>
@@ -68,7 +69,7 @@ function ProductsByCategory() {
       fetchAllProducts();
     } else {
       axios
-        .get(`https://vegetablesdelivery-server.onrender.com/products/getProductsByCategory/${category}`)
+        .get(`${BASE_URL}/products/getProductsByCategory/${category}`)
         .then((response) => {
           if (
             response.data.filtercategory &&

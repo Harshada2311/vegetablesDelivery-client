@@ -6,10 +6,10 @@ function ProductsByCity() {
     const [cities, setCities] = useState([]);
     const [selectedCity, setSelectedCity] = useState('');
     const navigate = useNavigate();
-
+    const BASE_URL = process.env.REACT_APP_API_BASE_URL;
     useEffect(() => {
         axios
-            .get('https://vegetablesdelivery-server.onrender.com/products')
+            .get(`${BASE_URL}/products`)
             .then((response) => {
                 if (response.data && Array.isArray(response.data)) {
                     const citySet = new Set();
@@ -26,7 +26,7 @@ function ProductsByCity() {
                 }
             })
             .catch((error) => console.error('Error fetching cities', error));
-    }, []);
+    }, [BASE_URL]);
 
     const handleCityChange = (event) => {
         const city = event.target.value;

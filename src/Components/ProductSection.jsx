@@ -6,15 +6,16 @@ export default function ProductSection() {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const navigate = useNavigate();
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
-    axios.get("https://vegetablesdelivery-server.onrender.com/products").then((res) => {
+    axios.get(`${BASE_URL}/products`).then((res) => {
       const uniqueCategories = [
         ...new Set(res.data.map((product) => product.category)),
       ];
       setCategories(uniqueCategories);
     });
-  }, []);
+  }, [BASE_URL]);
 
   const handleChange = (e) => {
     const category = e.target.value;

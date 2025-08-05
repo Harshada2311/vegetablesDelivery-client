@@ -28,7 +28,7 @@ const Cart = () => {
     }, [cartItems]);
     return (
         <>
-            <div className="container py-4">
+            <div className="container py-4" style={{ marginTop: "40px" }}>
                 <h2>Your Cart</h2>
 
                 {cartItems.length === 0 ? (

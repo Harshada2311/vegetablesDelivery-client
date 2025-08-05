@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/LoginRegister.css'
 
 function Register() {
     const [form, setForm] = useState({ name: "", email: "", password: "" });
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -16,7 +17,7 @@ function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("https://vegetablesdelivery-server.onrender.com/api/auth/register", form);
+            await axios.post(`${BASE_URL}/api/auth/register`, form);
             navigate("/login");
         } catch (err) {
             setError(err.response?.data?.message || "Registration failed.");
@@ -34,6 +35,12 @@ return (
             <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
             <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
             <button type="submit">Register</button>
+             <p className="text-center mt-2">
+          <Link to="/login" className="text-primary text-decoration-none">
+            Already Register? Login
+          </Link>
+        </p>
+
         </form>
     </div>
 )

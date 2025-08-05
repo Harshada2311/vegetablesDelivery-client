@@ -13,10 +13,12 @@ export default function Category() {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
     axios
-      .get(`https://vegetablesdelivery-server.onrender.com/products/getProductsByCategory/${category}`)
+      
+      .get(`${BASE_URL}/products/getProductsByCategory/${category}`)
       .then((res) => {
         if (res.data.filtercategory && Array.isArray(res.data.filtercategory)) {
           setProducts(res.data.filtercategory);
@@ -27,7 +29,7 @@ export default function Category() {
       .catch((err) => {
         setError("Failed to fetch products");
       });
-  }, [category]);
+  }, [category , BASE_URL]);
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
